@@ -44,7 +44,7 @@ class Odibets:
 
         matches_list = []
         for match in data["matches"]:
-            outcomes = list
+            outcomes = []
             for outcome in match["outcomes"]:
                 outcomes.append(models.Outcome(**outcome))
             match["outcomes"] = outcomes
