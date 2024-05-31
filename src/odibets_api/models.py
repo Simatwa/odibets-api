@@ -119,5 +119,5 @@ class Match(BaseModel):
 class JackpotMatches(BaseModel):
     """Combines Jackpot and Matches"""
 
-    jackpot: Jackpot
+    jackpots: list[Jackpot]
     matches: list[Match]

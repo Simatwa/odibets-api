@@ -1,6 +1,8 @@
-from odibets_api import Betika
+from odibets_api import Odibets
 
-b = Betika()
+inf = Odibets().daily_jackpot()
 
-for jackpot in b.jackpot_events():
-    print(jackpot.event_name, "\n", jackpot.prize)
+print(inf.jackpots[0])
+
+for match in inf.matches:
+    print(match.sport_id, match.home_team, match.away_team, match.start_time, sep=" - ")

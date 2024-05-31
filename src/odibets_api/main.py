@@ -38,9 +38,11 @@ class Odibets:
             models.JackpotMatches: __
         """
         data: dict = fetch_json(odibets_utils.Urls.daily_jackpot)["data"]
-        jackpot: dict = data["jackpots"][0]  # assume there's only one jackpot
-        jackpot_meta = jackpot["meta"]
-        jackpot["meta"] = models.JackpotMeta(**jackpot_meta)
+        jackpots_list = []
+        for jackpot in data["jackpots"]:
+            jackpot_meta = jackpot["meta"]
+            jackpot["meta"] = models.JackpotMeta(**jackpot_meta)
+            jackpots_list.append(models.Jackpot(**jackpot))
 
         matches_list = []
         for match in data["matches"]:
@@ -50,6 +52,4 @@ class Odibets:
             match["outcomes"] = outcomes
             matches_list.append(models.Match(**match))
 
-        return models.JackpotMatches(
-            jackpot=models.Jackpot(**jackpot), matches=matches_list
-        )
+        return models.JackpotMatches(jackpots=jackpots_list, matches=matches_list)
