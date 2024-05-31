@@ -26,7 +26,7 @@ setup(
     author="Smartwa",
     maintainer="Smartwa",
     author_email="simatwacaleb@proton.me",
-    description="Unofficial Odibets API for Python",
+    description="Unofficial API for Odibets in Python",
     packages=find_packages("src"),
     package_dir={"": "src"},
     url="https://github.com/Simatwa/odibets-api",
