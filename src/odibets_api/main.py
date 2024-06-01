@@ -41,6 +41,8 @@ class Odibets:
         jackpots_list = []
         for jackpot in data["jackpots"]:
             jackpot_meta = jackpot["meta"]
+            if not jackpot_meta:
+                continue
             jackpot["meta"] = models.JackpotMeta(**jackpot_meta)
             jackpots_list.append(models.Jackpot(**jackpot))
 

@@ -3,7 +3,7 @@ from odibets_api import Odibets
 import odibets_api.models as models
 
 
-class TestBetika(unittest.TestCase):
+class TestOdibets(unittest.TestCase):
 
     def setUp(self):
         self.bet = Odibets()

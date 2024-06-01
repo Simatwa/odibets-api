@@ -15,9 +15,9 @@ class JackpotMeta(BaseModel):
     ```
     """
 
-    week_id: str
+    week_id: int
     name: str
-    status: str
+    status: int
     start_time: datetime
 
 
@@ -42,11 +42,11 @@ class Jackpot(BaseModel):
     ```
     """
 
-    jackpot_id: str
+    jackpot_id: int
     name: str
-    bet_amount: str
-    prize: str
-    games: str
+    bet_amount: float
+    prize: float
+    games: int
     bonus_starts_at: str
     binomen: str
     meta: JackpotMeta
@@ -69,11 +69,11 @@ class Outcome(BaseModel):
     ```
     """
 
-    outcome_id: str
+    outcome_id: int
     outcome_key: str
     outcome_name: str
     specifiers: str
-    odd_value: str
+    odd_value: float
     status: str
     sub_type_id: str
     odd_type: str
@@ -107,12 +107,12 @@ class Match(BaseModel):
     ```
     """
 
-    parent_match_id: str
+    parent_match_id: int
     home_team: str
     away_team: str
     start_time: datetime
-    sport_id: str
-    jp_week_id: str
+    sport_id: int
+    jp_week_id: int
     outcomes: list[Outcome]
 
 
