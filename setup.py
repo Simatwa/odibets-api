@@ -7,6 +7,7 @@ from setuptools import find_packages
 
 INSTALL_REQUIRE = [
     "requests[socks]==2.31.0",
+    "pydantic==2.6.4",
 ]
 
 
