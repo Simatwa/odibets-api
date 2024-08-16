@@ -20,6 +20,8 @@ session.headers.update(
 
 def fetch_json(*args, **kwargs) -> dict[typing.Any, typing.Any]:
     """Get resource `requests.get`"""
+    if not kwargs.get('timeout'):
+        kwargs['timeout'] = 10
     resp = session.get(*args, **kwargs)
     resp.raise_for_status()
     return resp.json()
